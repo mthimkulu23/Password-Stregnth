@@ -1,7 +1,3 @@
-html {
-  scroll-behavior: smooth;
-}
-
 /* Reset and base styles */
 * {
   box-sizing: border-box;
@@ -236,4 +232,3 @@ footer {
   max-height: 180px;
   object-fit: cover;
 }
-
