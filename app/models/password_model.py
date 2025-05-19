@@ -32,3 +32,5 @@ def crack_hash(hash_to_crack):
         return "❌ No match found in wordlist."
     except FileNotFoundError:
         return "⚠️ Wordlist file not found."
+
+
