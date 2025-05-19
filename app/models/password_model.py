@@ -16,7 +16,8 @@ def check_strength(password):
         errors.append("Use at least one special character.")
 
     if not errors:
-        return f"✅ Strong password. Hashed with bcrypt: {bcrypt.hashpw(password.encode(), bcrypt.gensalt()).decode()}"
+        hashed = bcrypt.hashpw(password.encode(), bcrypt.gensalt()).decode()
+        return f"✅ Strong password. Hashed with bcrypt: {hashed}"
     else:
         return "⚠️ Weak password: " + ", ".join(errors)
 

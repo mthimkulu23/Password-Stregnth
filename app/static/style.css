@@ -1,59 +1,207 @@
-/* app/static/style.css */
+/* Reset and base styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    margin: 40px;
-    color: #333;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Main container */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Navbar */
+.navbar {
+  background-color: rgba(0, 0, 0, 0.25);
+  padding: 1rem 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.navbar .brand {
+  font-weight: bold;
+  font-size: 1.8rem;
+  color: #f8f8f8;
+  text-decoration: none;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.nav-links li a {
+  color: #ddd;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #fff;
+}
+
+/* Main content */
+.main-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.8rem;
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+/* Happy person SVG container */
+.happy-person {
+  margin: 1.5rem 0 2rem;
+  width: 120px;
+  height: 120px;
+  animation: bounce 2.5s infinite ease-in-out;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
   }
-  
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+/* Password form */
+.password-form {
+  display: flex;
+  gap: 1rem;
+  max-width: 400px;
+  width: 100%;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.password-form input[type="text"] {
+  flex-grow: 1;
+  padding: 0.8rem 1rem;
+  border-radius: 6px;
+  border: none;
+  font-size: 1rem;
+  outline: none;
+  transition: box-shadow 0.3s ease;
+  min-width: 0;
+}
+
+.password-form input[type="text"]:focus {
+  box-shadow: 0 0 10px #ff7e5f;
+  border-radius: 8px;
+}
+
+.password-form button {
+  background: linear-gradient(to right, #feb47b, #ff7e5f);
+  border: none;
+  color: white;
+  padding: 0 1.5rem;
+  font-size: 1.1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.password-form button:hover {
+  background: linear-gradient(to right, #ff7e5f, #feb47b);
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #ff7e5f;
+}
+
+/* Result and Status fade in */
+.result, .status {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  max-width: 100%;
+  width: 100%;
+  font-size: 1.1rem;
+  font-weight: 600;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  opacity: 0;
+  animation: fadeIn 0.8s forwards;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  overflow-x: auto;
+  white-space: normal;
+  margin-bottom: 1rem;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Footer */
+footer {
+  background-color: rgba(0, 0, 0, 0.25);
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #ccc;
+  box-shadow: 0 -2px 4px rgba(0,0,0,0.3);
+  margin-top: auto;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-top: 1rem;
+  }
+
   h1 {
-    color: #007bff;
-    text-align: center;
-    margin-bottom: 30px;
+    font-size: 2rem;
   }
-  
-  form {
-    text-align: center;
-    margin-bottom: 20px;
+
+  .happy-person {
+    width: 90px;
+    height: 90px;
   }
-  
-  input[type="text"] {
-    padding: 10px;
-    width: 250px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-    margin-right: 10px;
-    transition: border-color 0.3s;
+
+  .password-form {
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 100%;
   }
-  
-  input[type="text"]:focus {
-    border-color: #007bff;
-    outline: none;
+
+  .result, .status {
+    font-size: 1rem;
+    width: 100%;
+    word-break: break-word;
+    overflow-wrap: break-word;
   }
-  
-  button {
-    padding: 10px 18px;
-    background-color: #007bff;
-    border: none;
-    color: white;
-    font-size: 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
-  p {
-    text-align: center;
-    font-size: 18px;
-  }
-  
-  strong {
-    color: #222;
-  }
-  
+}
