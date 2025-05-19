@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 /* Reset and base styles */
 * {
   box-sizing: border-box;
@@ -12,52 +16,38 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  padding-top: 56px;
 }
 
-/* Main container */
 .container {
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 1.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
 }
 
 /* Navbar */
 .navbar {
-  background-color: rgba(0, 0, 0, 0.25);
-  padding: 1rem 0;
+  background-color: rgba(0, 0, 0, 0.25) !important;
   box-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
-.navbar .brand {
+.navbar-brand {
   font-weight: bold;
   font-size: 1.8rem;
-  color: #f8f8f8;
-  text-decoration: none;
+  color: #f8f8f8 !important;
 }
 
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 1.5rem;
-  align-items: center;
-}
-
-.nav-links li a {
-  color: #ddd;
-  text-decoration: none;
+.nav-link {
+  color: #ddd !important;
   font-weight: 600;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease !important;
 }
 
-.nav-links li a:hover {
-  color: #fff;
+.nav-link:hover {
+  color: #fff !important;
 }
 
-/* Main content */
+/* Main Content */
 .main-content {
   flex-grow: 1;
   display: flex;
@@ -67,13 +57,26 @@ body {
   text-align: center;
 }
 
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
+}
+
 h1 {
   font-size: 2.8rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 }
 
-/* Happy person SVG container */
+h2, h3 {
+  margin-bottom: 1.5rem;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+/* SVG */
 .happy-person {
   margin: 1.5rem 0 2rem;
   width: 120px;
@@ -82,24 +85,20 @@ h1 {
 }
 
 @keyframes bounce {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-15px);
-  }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
 }
 
-/* Password form */
+/* Password Form */
 .password-form {
   display: flex;
   gap: 1rem;
   max-width: 400px;
   width: 100%;
-  margin: 0 auto 2rem auto; /* Center form horizontally */
+  margin: 0 auto 2rem auto;
   flex-wrap: wrap;
-  justify-content: center;  /* Center form items horizontally */
-  align-items: center;      /* Align form items vertically */
+  justify-content: center;
+  align-items: center;
 }
 
 .password-form input[type="password"] {
@@ -122,7 +121,7 @@ h1 {
   background: linear-gradient(to right, #feb47b, #ff7e5f);
   border: none;
   color: white;
-  padding: 0 1.5rem;
+  padding: 0.8rem 1.5rem;
   font-size: 1.1rem;
   border-radius: 6px;
   cursor: pointer;
@@ -136,23 +135,18 @@ h1 {
   box-shadow: 0 0 15px #ff7e5f;
 }
 
-/* Result and Status fade in */
-.result, .status {
+/* Output styles */
+.result, .status, .time-to-crack {
   background: rgba(255, 255, 255, 0.15);
   padding: 1rem 1.5rem;
   border-radius: 8px;
-  max-width: 100%;
-  width: 100%;
   font-size: 1.1rem;
   font-weight: 600;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  opacity: 0;
   animation: fadeIn 0.8s forwards;
   word-wrap: break-word;
-  overflow-wrap: break-word;
-  overflow-x: auto;
-  white-space: normal;
   margin-bottom: 1rem;
+  opacity: 0;
 }
 
 @keyframes fadeIn {
@@ -169,20 +163,12 @@ footer {
   font-size: 0.9rem;
   color: #ccc;
   box-shadow: 0 -2px 4px rgba(0,0,0,0.3);
-  margin-top: auto;
 }
 
-/* === RESPONSIVE === */
+/* Responsive */
 @media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .nav-links {
-    flex-direction: column;
-    gap: 0.8rem;
-    margin-top: 1rem;
+  body {
+    padding-top: 60px;
   }
 
   h1 {
@@ -197,21 +183,57 @@ footer {
   .password-form {
     flex-direction: column;
     gap: 1rem;
-    max-width: 100%;
-    margin: 0 auto 2rem auto; /* maintain horizontal center on small screens */
-    justify-content: center;   /* center items in column */
-    align-items: center;
   }
 
-  .result, .status {
-    font-size: 1rem;
+  .password-form button {
     width: 100%;
-    word-break: break-word;
-    overflow-wrap: break-word;
   }
 }
 
 
+#about {
+  background: url('../images/bg-security.jpg') no-repeat center center/cover;
+  position: relative;
+  overflow: hidden;
+}
 
+#about .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(10, 10, 30, 0.8);
+  z-index: 1;
+}
 
+#about .container {
+  position: relative;
+  z-index: 2;
+}
+
+.text-accent {
+  color: #00ffc8;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+.glass-card img {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  max-height: 180px;
+  object-fit: cover;
+}
 

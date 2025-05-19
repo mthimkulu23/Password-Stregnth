@@ -28,9 +28,28 @@ def crack_hash(hash_to_crack):
                 word = line.strip()
                 hashed_word = hashlib.sha256(word.encode()).hexdigest()
                 if hashed_word == hash_to_crack:
-                    return f"✅ Match found: {word}"
-        return "❌ No match found in wordlist."
+                    return f" Match found: {word}"
+        return "No match found in wordlist."
     except FileNotFoundError:
         return "⚠️ Wordlist file not found."
 
+def estimate_time_to_crack(password):
+    length = len(password)
+    complexity = 0
+    if re.search(r"[a-z]", password): complexity += 26
+    if re.search(r"[A-Z]", password): complexity += 26
+    if re.search(r"\d", password): complexity += 10
+    if re.search(r"[!@#$%^&*]", password): complexity += 8
 
+    try:
+        combinations = complexity ** length
+    except OverflowError:
+        return "Estimated time to crack: Very long (practically unbreakable)"
+
+    seconds = combinations / 1e9
+    years = seconds / (60 * 60 * 24 * 365)
+
+    if years < 1:
+        return f"Estimated time to crack: {seconds:.2f} seconds"
+    else:
+        return f"Estimated time to crack: {years:.2f} years"
