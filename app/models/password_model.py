@@ -15,11 +15,10 @@ def check_strength(password):
     if not re.search(r"[!@#$%^&*]", password):
         errors.append("Use at least one special character.")
 
-    if not errors:
-        hashed = bcrypt.hashpw(password.encode(), bcrypt.gensalt()).decode()
-        return f"✅ Strong password. Hashed with bcrypt: {hashed}"
-    else:
+    if errors:
         return "⚠️ Weak password: " + ", ".join(errors)
+    else:
+        return "✅ Strong password."
 
 def crack_hash(hash_to_crack):
     try:
@@ -28,8 +27,8 @@ def crack_hash(hash_to_crack):
                 word = line.strip()
                 hashed_word = hashlib.sha256(word.encode()).hexdigest()
                 if hashed_word == hash_to_crack:
-                    return f" Match found: {word}"
-        return "No match found in wordlist."
+                    return f"✅ Match found: {word}"
+        return "❌ No match found in wordlist."
     except FileNotFoundError:
         return "⚠️ Wordlist file not found."
 
@@ -44,12 +43,12 @@ def estimate_time_to_crack(password):
     try:
         combinations = complexity ** length
     except OverflowError:
-        return "Estimated time to crack: Very long (practically unbreakable)"
+        return "🕒 Estimated time to crack: Practically unbreakable"
 
     seconds = combinations / 1e9
     years = seconds / (60 * 60 * 24 * 365)
 
     if years < 1:
-        return f"Estimated time to crack: {seconds:.2f} seconds"
+        return f"🕒 Estimated time to crack: {seconds:.2f} seconds"
     else:
-        return f"Estimated time to crack: {years:.2f} years"
+        return f"🕒 Estimated time to crack: {years:.2f} years"
