@@ -457,7 +457,7 @@ footer {
 }
 
 
-
+ /* Chatbox with some style */
 .chat-toggle {
   position: fixed;
   bottom: 25px;
@@ -556,7 +556,7 @@ footer {
 
 
 
-
+ /* Contact Section */
 .contact-section {
   background: linear-gradient(135deg, #ff6ec4, #7873f5);
   animation: gradientFlip 8s ease infinite;
