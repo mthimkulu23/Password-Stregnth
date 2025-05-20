@@ -9,10 +9,6 @@
 body {
   background: linear-gradient(135deg, #667eea, #764ba2);
   color: #fff;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  padding-top: 56px;
 }
 
 .container {
