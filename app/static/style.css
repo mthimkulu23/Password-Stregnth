@@ -467,6 +467,7 @@ footer {
   border: none;
   width: 60px;
   height: 60px;
+  
   border-radius: 50%;
   font-size: 28px;
   cursor: pointer;
@@ -554,10 +555,10 @@ footer {
 
 
 
-
+/* 
 
  /* Contact Section */
-.contact-section {
+ .crz-contact {
   background: linear-gradient(135deg, #ff6ec4, #7873f5);
   animation: gradientFlip 8s ease infinite;
   padding: 60px 20px;
@@ -572,7 +573,7 @@ footer {
   100% { background: linear-gradient(135deg, #ff6ec4, #7873f5); }
 }
 
-.container {
+.crz-contact .container {
   max-width: 700px;
   margin: 0 auto;
   background: rgba(255, 255, 255, 0.1);
@@ -582,9 +583,9 @@ footer {
   box-shadow: 0 0 20px rgba(0,0,0,0.3);
 }
 
-.contact-form input,
-.contact-form select,
-.contact-form textarea {
+.crz-contact .contact-form input,
+.crz-contact .contact-form select,
+.crz-contact .contact-form textarea {
   width: 100%;
   padding: 15px;
   margin: 10px 0;
@@ -597,12 +598,12 @@ footer {
   outline: none;
 }
 
-.contact-form input::placeholder,
-.contact-form textarea::placeholder {
+.crz-contact .contact-form input::placeholder,
+.crz-contact .contact-form textarea::placeholder {
   color: #ddd;
 }
 
-.contact-form button {
+.crz-contact .contact-form button {
   background: #00c6ff;
   background: linear-gradient(to right, #0072ff, #00c6ff);
   border: none;
@@ -615,19 +616,7 @@ footer {
   transition: 0.3s ease;
 }
 
-.contact-form button:hover {
+.crz-contact .contact-form button:hover {
   background: linear-gradient(to right, #00c6ff, #0072ff);
   transform: scale(1.05);
 }
-
-
-
-
-
-
-
-
-
-
-
-
