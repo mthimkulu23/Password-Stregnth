@@ -190,6 +190,7 @@ footer {
 }
 
 .glass-card {
+  animation: linear-gradient 8s ease infinite;
   background: linear-gradient(to right, #667eea, #764ba2); /* Apply gradient here */
   border-radius: 15px;
   backdrop-filter: blur(10px);
