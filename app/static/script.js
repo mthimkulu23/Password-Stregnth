@@ -200,3 +200,11 @@ function togglePassword() {
   });
 
 
+
+  function toggleFact(element) {
+    element.classList.toggle('open');
+  }
+
+
+
+
