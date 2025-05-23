@@ -736,6 +736,8 @@ margin-top: 40px;
 
 footer {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  object-fit: cover;
+  width: 100%;
 }
 
 footer h6 {
