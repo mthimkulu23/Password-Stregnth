@@ -22,3 +22,6 @@ def password_tools():
                     time_to_crack = estimate_time_to_crack(password)
 
     return render_template("password.html", result=result, cracked=cracked, time_to_crack=time_to_crack)
+
+
+
