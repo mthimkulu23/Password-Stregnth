@@ -7,3 +7,4 @@ Jinja2
 MarkupSafe
 Werkzeug
 gunicorn
+google-generativeai # Added this line for the Gemini API
